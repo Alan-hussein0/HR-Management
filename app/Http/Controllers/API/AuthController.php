@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Controllers\API\BaseControllerer;
+use App\Http\Controllers\API\BaseController as BaseController;
+use App\Models\Profile;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -15,7 +17,8 @@ class AuthController extends BaseController
     {
         $input = $request->all();
         $validator= Validator::make($input,[
-            'name'=>'required',
+            // 'name'=>'required',
+            'type' => 'required',
             'email'=>'required|email',
             'password'=>'required',
             'c_password'=>'required|same:password'
@@ -33,8 +36,19 @@ class AuthController extends BaseController
 
         $input['password'] = Hash::make($input['password']);
         $user = User::create($input);
-        $success['token'] = $user->createToken('PlanningWebsiteProject')->accessToken;
-        $success['name'] = $user->name;
+    
+        // Profile::create([
+        //     'user_id' => $user->id,
+        //     'first_name' => 'first_name',
+        //     'last_name' => 'last_name',
+        //     'date_of_birth' => Carbon::now(),
+        // ]);
+
+        $profile = new ProfileController();
+        $profile->store(user_id: $user->id);
+
+        $success['token'] = $user->createToken('HRManagementProject')->accessToken;
+        $success['type'] = $user->type;
         $success['id']= $user->id;
         return $this->sendResponse($success,'User registered Successfully!');
 
@@ -44,8 +58,8 @@ class AuthController extends BaseController
     {
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $user = Auth::user();
-            $success['token'] = $user->createToken('PlanningWebsiteProject')->accessToken;
-            $success['name'] = $user->name;
+            $success['token'] = $user->createToken('HRManagementProject')->accessToken;
+            $success['type'] = $user->type;
             $success['id']= $user->id;
             return $this->sendResponse($success, 'User Login Successfully!' );
         }

@@ -59,8 +59,8 @@ class AuthTest extends TestCase
     public function test_user_register_successfully()
     {
         $user = [
-            'name' => 'user',
-            'type' => 'owner',
+            // 'name' => 'user',
+            'type' => 'employee',
             'email' => 'user@gmail.com',
             'password' => 'secret',
             'c_password' => 'secret',
@@ -76,8 +76,8 @@ class AuthTest extends TestCase
     {
         User::factory()->create(['email' => 'user@gmail.com']);
         $user = [
-            'name' => 'user',
-            'type' => 'owner',
+            // 'name' => 'user',
+            'type' => 'fonder',
             'email' => 'user@gmail.com',
             'password' => 'secret',
             'c_password' => 'secret',
@@ -93,8 +93,8 @@ class AuthTest extends TestCase
     public function test_user_register_validation_error_successfully()
     {
         $user = [
-            'name' => '',
-            'type' => 'owner',
+            // 'name' => '',
+            'type' => '',
             'email' => 'user@gmail.com',
             'password' => 'secret',
             'c_password' => 'secret',
@@ -105,7 +105,7 @@ class AuthTest extends TestCase
         $response->assertStatus(404);
         $response->assertJsonFragment([
             'data' => [
-                'name'=>['The name field is required.']
+                'type'=>['The type field is required.']
                 ]
             ,'success' => false
         ]);
