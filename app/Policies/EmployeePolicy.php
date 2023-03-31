@@ -5,6 +5,7 @@ namespace App\Policies;
 use App\Models\Employee;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Auth\Access\Response;
 
 class EmployeePolicy
 {
@@ -44,16 +45,11 @@ class EmployeePolicy
         //
     }
 
-    /**
-     * Determine whether the user can update the model.
-     *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Employee  $employee
-     * @return \Illuminate\Auth\Access\Response|bool
-     */
     public function update(User $user, Employee $employee)
     {
-        //
+        return $user->employee->job_title == 'HR'
+                        ? Response::allow()
+                        : Response::denyWithStatus(403,"you not authrized for this process"); 
     }
 
     /**
@@ -65,7 +61,9 @@ class EmployeePolicy
      */
     public function delete(User $user, Employee $employee)
     {
-        //
+        return $user->employee->job_title == 'HR'
+        ? Response::allow()
+        : Response::denyWithStatus(403,"you not authrized for this process");
     }
 
     /**

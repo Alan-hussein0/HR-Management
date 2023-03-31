@@ -17,6 +17,9 @@ class Employee extends Model
         'job_title',
     ];
 
+    protected $casts = [
+        'hired_at' => 'datetime'
+    ];
 
     public function user()
     {

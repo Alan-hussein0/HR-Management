@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\EmployeeController;
 use App\Http\Controllers\API\ProfileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -29,5 +30,17 @@ Route::middleware([
     ->group(function () {
         Route::get('/{user}',[ProfileController::class, 'show'])->name('show');
         Route::patch('/{profile}',[ProfileController::class, 'update'])->name('update');        
+    }
+);
+
+Route::middleware([
+    'auth:api',
+    ])
+    ->prefix('employees')
+    ->as('employees.')
+    ->group(function () {
+        Route::get('/search',[EmployeeController::class, 'index'])->name('index');
+        Route::patch('/{employee}',[EmployeeController::class, 'update'])->name('update');        
+        Route::get('/{employee}', [EmployeeController::class, 'show']);
     }
 );
