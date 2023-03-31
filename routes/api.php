@@ -21,12 +21,13 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/register', 'register');
 });
 
-Route::middleware(['api','auth'])
+Route::middleware([
+    'auth:api',
+    ])
     ->prefix('user/profile')
     ->as('user.profile.')
-    ->group(function(){
+    ->group(function () {
         Route::get('/{user}',[ProfileController::class, 'show'])->name('show');
         Route::patch('/{profile}',[ProfileController::class, 'update'])->name('update');        
-        
     }
 );

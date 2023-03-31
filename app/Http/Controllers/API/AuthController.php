@@ -36,16 +36,16 @@ class AuthController extends BaseController
 
         $input['password'] = Hash::make($input['password']);
         $user = User::create($input);
-    
+        
+        //create new profile for the user with dumy data
+        // $this->create_profile($user->id);
+        (new ProfileController)->store($user->id);
         // Profile::create([
-        //     'user_id' => $user->id,
-        //     'first_name' => 'first_name',
-        //     'last_name' => 'last_name',
-        //     'date_of_birth' => Carbon::now(),
-        // ]);
-
-        $profile = new ProfileController();
-        $profile->store(user_id: $user->id);
+        //         'user_id' => $user->id,
+        //         'first_name' => 'first_name',
+        //         'last_name' => 'last_name',
+        //         'date_of_birth' => Carbon::now(),
+        //     ]);
 
         $success['token'] = $user->createToken('HRManagementProject')->accessToken;
         $success['type'] = $user->type;
@@ -67,4 +67,11 @@ class AuthController extends BaseController
             return $this->sendError('Unauthorized',['error','unauthorized']);
         }
     }
+
+    // public function create_profile($user_id)
+    // {
+    //     $profile = new ProfileController();
+    //     $profile->store(user_id: $user_id);
+    //     return;
+    // }
 }

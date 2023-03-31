@@ -6,6 +6,8 @@ use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Auth\Access\Response;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Resources\Json\JsonResource;
 
 class ProfilePolicy
 {
@@ -34,19 +36,8 @@ class ProfilePolicy
     {
         return $user->id == $profile->user_id 
         ? Response::allow() 
-        : Response::denyWithStatus(status: 404, message: 'unauthorized to make this operation');
-    }
-
-    /**
-     * Determine whether the user can create models.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Auth\Access\Response|bool
-     */
-    public function create(User $user)
-    {
-        //
-    }
+        : Response::denyWithStatus(status: 403, message: 'unauthorized to make this operation');
+    }   
 
     /**
      * Determine whether the user can update the model.
@@ -57,9 +48,10 @@ class ProfilePolicy
      */
     public function update(User $user, Profile $profile)
     {
+       ;
         return $user->id == $profile->user_id 
         ? Response::allow() 
-        : Response::denyWithStatus(status: 404, message: 'unauthorized to make this operation');
+        : Response::denyWithStatus(status: 403, message: 'unauthorized to make this operation');
     }
 
     /**
