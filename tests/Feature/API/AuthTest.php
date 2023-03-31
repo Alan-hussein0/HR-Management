@@ -68,6 +68,7 @@ class AuthTest extends TestCase
      
         $response = $this->postJson('api/register',$user);
      
+        $this->assertDatabaseCount('profiles',1);
         $response->assertStatus(200);
         $response->assertJsonStructure(['success','data'=>['token']]);
     }

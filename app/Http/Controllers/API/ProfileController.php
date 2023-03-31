@@ -8,13 +8,17 @@ use App\Http\Resources\ProfileResource;
 use App\Models\Profile;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Http\Client\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends BaseController
 {
     public function show(User $user)
     {
-        $profile = $user->profile();
+        $this->authorize('view',$user->profile);
+    
+        $profile = $user->profile;
         return $this->sendResponse(new ProfileResource($profile), 'the profile has been retrieved successfully');
     }
 
@@ -34,7 +38,7 @@ class ProfileController extends BaseController
         // $validated = $request->validated();
 
         //check if the user authrize 
-        $this->authorize('update',Profile::class);
+        $this->authorize('update', $profile);
 
         $profile->first_name = $request->first_name;
         $profile->last_name = $request->last_name;
