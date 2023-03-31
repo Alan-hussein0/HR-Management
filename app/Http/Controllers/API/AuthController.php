@@ -17,7 +17,7 @@ class AuthController extends BaseController
     {
         $input = $request->all();
         $validator= Validator::make($input,[
-            // 'name'=>'required',
+            'name'=>'required',
             'type' => 'required',
             'email'=>'required|email',
             'password'=>'required',
@@ -49,6 +49,7 @@ class AuthController extends BaseController
 
         $success['token'] = $user->createToken('HRManagementProject')->accessToken;
         $success['type'] = $user->type;
+        $success['name'] = $user->name;
         $success['id']= $user->id;
         return $this->sendResponse($success,'User registered Successfully!');
 
@@ -60,6 +61,7 @@ class AuthController extends BaseController
             $user = Auth::user();
             $success['token'] = $user->createToken('HRManagementProject')->accessToken;
             $success['type'] = $user->type;
+            $success['name'] = $user->name;
             $success['id']= $user->id;
             return $this->sendResponse($success, 'User Login Successfully!' );
         }
