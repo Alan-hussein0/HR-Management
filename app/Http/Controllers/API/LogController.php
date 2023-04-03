@@ -39,6 +39,11 @@ class LogController extends BaseController
         } 
         // dd(new LogResource($log));
         
+        $info = array(
+            'title' => 'view logs',
+            'description' => 'retrieve all logs for specific date: '.$date . '',
+        );
+        (new LogController)->store(data:$info);
         
         return $this->sendResponse(LogResource::collection($log), 'all logs of the date have been retrieved successfully!');
     }

@@ -19,6 +19,13 @@ class ProfileController extends BaseController
         $this->authorize('view',$user->profile);
     
         $profile = $user->profile;
+        
+        $data = array(
+            'title' => 'view profile',
+            'description' => 'user view the profile',
+        );
+        (new LogController)->store(data:$data);
+
         return $this->sendResponse(new ProfileResource($profile), 'the profile has been retrieved successfully');
     }
 
@@ -50,6 +57,12 @@ class ProfileController extends BaseController
         }
 
         $profile->save();
+
+        $data = array(
+            'title' => 'update profile',
+            'description' => 'The user updating his profile',
+        );
+        (new LogController)->store(data:$data);
 
         return $this->sendResponse(new ProfileResource($profile), 'The profile has been updated successfully');
     }

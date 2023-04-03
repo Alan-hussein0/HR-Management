@@ -28,6 +28,7 @@ class EmployeeController extends BaseController
 
         if ($request->has('sort_name')) {
             $sort_name = $request->sort_name;
+
             //user point to user() in employee model
             //this query will return all employee in best preformance 
             $employee = Employee::with(['user' => fn($query) => $query->where('name', 'like', '%'.$sort_name.'%')])
@@ -94,7 +95,6 @@ class EmployeeController extends BaseController
         (new APILogController)->store(data:$data);
         
         //send email
-        // dd(\Illuminate\Support\Facades\App::environment());
         if ($check_change && \Illuminate\Support\Facades\App::environment('local')) {
             ProcessSendEmail::dispatch(user: $employee->user);
         }
@@ -208,11 +208,9 @@ class EmployeeController extends BaseController
             $filename = "employees.csv";
             $handle = fopen($filename, 'w+');
             fputcsv($handle, array('name','first_name','last_name', 'age', 'salary', 'gender', 'hired date', 'job title','managers'));
-            // foreach($table as $row) {
                 Employee::with('user')->lazyById(2000, 'id')
                 ->each(function ($employee) use (&$handle) {
                     fputcsv($handle, [ 
-                        // dd($this->managersSequence($employee)),
                         'name' => $employee->user->name,
                         'first_name' => $employee->user->profile->first_name,
                         'last_name' => $employee->user->profile->last_name,
@@ -241,10 +239,7 @@ class EmployeeController extends BaseController
         );
         (new APILogController)->store(data:$data);
 
-        // return response()->download($filename, 'employees.csv');
-        // return response()->download($filename, 'employees.csv', $headers);
-
-            return response()->download($filename, 'employees.csv', $headers);
+        return response()->download($filename, 'employees.csv', $headers);
             // return response()->json(['success'=>true,'message'=>'export csv employee file'], 200);
     }
 
@@ -252,9 +247,6 @@ class EmployeeController extends BaseController
     {
         if ($request->hasFile('file')) {
             
-            // $request->validate([
-            //     'file'=> 'required|mimes:xlsx, csv, xls'
-            // ]);
             $employees_info = array_map('str_getcsv', file($request->file));
 
             ProcessEmployeeCsv::dispatch($employees_info);
@@ -264,7 +256,6 @@ class EmployeeController extends BaseController
             'title' => 'import csv employee file',
             'description' => 'import employees from csv file to database',
         );
-
         (new APILogController)->store(data:$data);
 
         return response()->json(['success'=>true,'message'=>'import csv file contain employees successfully'], 200);
