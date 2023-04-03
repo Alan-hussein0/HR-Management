@@ -1,0 +1,418 @@
+{
+	"info": {
+		"_postman_id": "40114243-a45c-4fa0-986c-e09082d60eef",
+		"name": "HR Management Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15306137"
+	},
+	"item": [
+		{
+			"name": "show profile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTJmNTdiOTkyYzNmNGY5ZGI0ODg3YjRhZWQzYTdjODY3NTk4ZThiN2VlNmQ0ZDQ4YTRhNDkwNDU1NGUyOTY4YzVlZjNhNmMyYzA0ZTg2YTQiLCJpYXQiOjE2ODAyNjA4MjMuMzA0OTcsIm5iZiI6MTY4MDI2MDgyMy4zMDQ5NzEsImV4cCI6MTcxMTg4MzIyMy4zMDEzNTYsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.EtEx8sAW91tGN6KEIU6hW0i-Ne2_wfJCpYBGcQQsq8PJS_2G2Q9_oaHygfo_F1G15vk9tH4OraDzilS76AWXiXt5hyvqWgnwKU4QDaEWXuQ75kWUUily3m3pBRTKyT2OfqWXhaZczfEu_mDc_f-qF8JWnb-xQt74kTCf4eFwoPWkyFxg4A9tuNNR2orYqE-uaSrVNhtYVFasB_Lqim4iy-eOzCOD4JpQXkZAbq0kPaPoDlgq9T01z6UF0RffE7mLL7jBdSPSY_w7FlIFdKqds3R6r5DXvvh1pXav5dC5BGVyZ2bvJ8UUNRd-MpRTEFsmem3sPYcclLx4N1txGc-re3e83hUFqPBDIKLmyQQB25TrS7Nx2UJ0OdpV1NYww5Q5Zw6mAu-Mt3bhXhDnGtPIaA1UZfOdxjpDquiiOYqMYbNKjLUKqyb7-0eEtJA1JqS85wNnKfnBQR_PMSauQlrRW_99voMh6TOK0iPzbksBpKPJ5E7gYbu1j0ylY6AzNEetn-z0FSyzD4vtmPjESDgdeaIy1DLVbAF2e8YBTYQT8lMJBnvWUu_TFz7i3MIzrbCFIwocq9ng5GurgSNY7VUWkHenECEt_QCcoFE2nAEzkO4TJVQa_f7ly5xDNdkVra8_h-ol4w0iC7d7DoU_KPwDubCR313J2fIpr61DKvqo16Q",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/user/profile/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"user",
+						"profile",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update profile",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTJmNTdiOTkyYzNmNGY5ZGI0ODg3YjRhZWQzYTdjODY3NTk4ZThiN2VlNmQ0ZDQ4YTRhNDkwNDU1NGUyOTY4YzVlZjNhNmMyYzA0ZTg2YTQiLCJpYXQiOjE2ODAyNjA4MjMuMzA0OTcsIm5iZiI6MTY4MDI2MDgyMy4zMDQ5NzEsImV4cCI6MTcxMTg4MzIyMy4zMDEzNTYsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.EtEx8sAW91tGN6KEIU6hW0i-Ne2_wfJCpYBGcQQsq8PJS_2G2Q9_oaHygfo_F1G15vk9tH4OraDzilS76AWXiXt5hyvqWgnwKU4QDaEWXuQ75kWUUily3m3pBRTKyT2OfqWXhaZczfEu_mDc_f-qF8JWnb-xQt74kTCf4eFwoPWkyFxg4A9tuNNR2orYqE-uaSrVNhtYVFasB_Lqim4iy-eOzCOD4JpQXkZAbq0kPaPoDlgq9T01z6UF0RffE7mLL7jBdSPSY_w7FlIFdKqds3R6r5DXvvh1pXav5dC5BGVyZ2bvJ8UUNRd-MpRTEFsmem3sPYcclLx4N1txGc-re3e83hUFqPBDIKLmyQQB25TrS7Nx2UJ0OdpV1NYww5Q5Zw6mAu-Mt3bhXhDnGtPIaA1UZfOdxjpDquiiOYqMYbNKjLUKqyb7-0eEtJA1JqS85wNnKfnBQR_PMSauQlrRW_99voMh6TOK0iPzbksBpKPJ5E7gYbu1j0ylY6AzNEetn-z0FSyzD4vtmPjESDgdeaIy1DLVbAF2e8YBTYQT8lMJBnvWUu_TFz7i3MIzrbCFIwocq9ng5GurgSNY7VUWkHenECEt_QCcoFE2nAEzkO4TJVQa_f7ly5xDNdkVra8_h-ol4w0iC7d7DoU_KPwDubCR313J2fIpr61DKvqo16Q",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\":\"a\",\r\n    \"last_name\":\"bb\",\r\n    \"gender\":1,\r\n    \"date_of_birth\":\"1999_2_1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/user/profile/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"user",
+						"profile",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Employee",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTJmNTdiOTkyYzNmNGY5ZGI0ODg3YjRhZWQzYTdjODY3NTk4ZThiN2VlNmQ0ZDQ4YTRhNDkwNDU1NGUyOTY4YzVlZjNhNmMyYzA0ZTg2YTQiLCJpYXQiOjE2ODAyNjA4MjMuMzA0OTcsIm5iZiI6MTY4MDI2MDgyMy4zMDQ5NzEsImV4cCI6MTcxMTg4MzIyMy4zMDEzNTYsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.EtEx8sAW91tGN6KEIU6hW0i-Ne2_wfJCpYBGcQQsq8PJS_2G2Q9_oaHygfo_F1G15vk9tH4OraDzilS76AWXiXt5hyvqWgnwKU4QDaEWXuQ75kWUUily3m3pBRTKyT2OfqWXhaZczfEu_mDc_f-qF8JWnb-xQt74kTCf4eFwoPWkyFxg4A9tuNNR2orYqE-uaSrVNhtYVFasB_Lqim4iy-eOzCOD4JpQXkZAbq0kPaPoDlgq9T01z6UF0RffE7mLL7jBdSPSY_w7FlIFdKqds3R6r5DXvvh1pXav5dC5BGVyZ2bvJ8UUNRd-MpRTEFsmem3sPYcclLx4N1txGc-re3e83hUFqPBDIKLmyQQB25TrS7Nx2UJ0OdpV1NYww5Q5Zw6mAu-Mt3bhXhDnGtPIaA1UZfOdxjpDquiiOYqMYbNKjLUKqyb7-0eEtJA1JqS85wNnKfnBQR_PMSauQlrRW_99voMh6TOK0iPzbksBpKPJ5E7gYbu1j0ylY6AzNEetn-z0FSyzD4vtmPjESDgdeaIy1DLVbAF2e8YBTYQT8lMJBnvWUu_TFz7i3MIzrbCFIwocq9ng5GurgSNY7VUWkHenECEt_QCcoFE2nAEzkO4TJVQa_f7ly5xDNdkVra8_h-ol4w0iC7d7DoU_KPwDubCR313J2fIpr61DKvqo16Q",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\":\"a\",\r\n    \"last_name\":\"bb\",\r\n    \"gender\":1,\r\n    \"date_of_birth\":\"1999_2_1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/user/profile/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"user",
+						"profile",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"ahmed1@gmail.com\",\r\n    \"name\":\"ahmed\",\r\n    \"type\":\"employee\",\r\n    \"password\":123123123,\r\n    \"c_password\":123123123\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNjc4ZWY1ZTE4NWU5NDhlNmVlOGU0ZGQyNWQ1NGQ0ZGIxNWY3ZTliYjgzODY0MzRiMTUwZjYwYzkwNzMyZWIxN2U1NTk1MjFiYjk0M2VmNzQiLCJpYXQiOjE2ODAyNTQwNzkuNzkwMjc0LCJuYmYiOjE2ODAyNTQwNzkuNzkwMjc2LCJleHAiOjE3MTE4NzY0NzkuNzg3MjA0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.WtA6Idn66rbwmmYz2DUNN3lYx6HvCRhgDqeyUBYdepKC-I0F5Qy_uI_Bgez6NXCMcN5FHtMTIP2sZNS4PTVREeF65sPP5JHnaJLIiOoRpiyrYN3lAPa9ev2R6Vdw7SBSSWfg8-uwanGraBnh8xgLLZqSaMINEsf6HVYPj1sRVpLpu-HII3l38nYywmTvtbBNWt8badd0Ou-a-UNs1Dgmw7owU6Y4CwxSd6ZuDN6eXHunRvsL2-OLV95lyl5FHJUTmmiocRPlw8YSFgiAA440_4dU8bMJT-6_xHZCRXSo8zGzs4NC3IZpZZO0i4x_SyNHmC1D0-7wnuR44m7lr-WC8Y0mmHk4_rTrtnG2d6wizhk7hj24Fays7DzCiiuKw6_hyMyEztjD8-0WHTaiUmdCuwZEa0lcYrh5tTlH2vW3OBYv8lLt63djTG9e1TfdMl5UJix4-mCGQ-4yBG4fCCY1I-8aCLcsIEiC3zZHKLBiZGBTk7HF_89VN7Ol7z8GY9LY7ZXvIDjAMdgzlDg_PQc62XR53zrXOdCpAvBC7E7aGw01UMaueQyY_jJFT4QXT-3dgHfLD5M6JOBzulq8GushfyytQetYaVfn38LjLDUSCIh_78jw3cwvRh5ZU1eAetr5tVrkQogb7o1TR0QFXQ4X6U2wrFFuL7fRIEv5OwGelwU",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"ahmed@gmail.com\",\r\n    \"password\":123123123\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "import csv",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZmU3MmQyOGIwYTc5ZGMyZmZiZTBjZmUyOTZhOTZjN2RmN2NlOGM5YzkzOTQwODZkZjI0MjhkZjI4YWNjM2Q2YTBkMzA0MjZmZjVkNjkyZjUiLCJpYXQiOjE2ODAzNzc1NzIuMjkyODA4LCJuYmYiOjE2ODAzNzc1NzIuMjkyODEsImV4cCI6MTcxMTk5OTk3Mi4yODg5NCwic3ViIjoiMTIiLCJzY29wZXMiOltdfQ.f6GqNDGfTrRLLfJ5cdhH_H2oGjFAM-_D-zfqfyy47thIAfzyH0BHZdJosuk3xvs4cfZqTOQicqlLo9cdWLisRHOH5X-I5TysBls-oYl8bL49J_rk3WVyEfl6rc4C7JEq5OG6jngdyCXuj75J9u9LJEZ-ATNvRILX-AIpw03-Z-N27meVKjbJPFlan1f3FWHkKtODdebnYIoS-HrC4LdQ0CiLQ5h1Rl4SuWCMgLqe1SrhxVRsGSgBBuQYz6AsGO7BM1RWUlmb4D-CJgFLWmhRjtbcBvgPCbBOHaAkJcbFYo06OtLGUxFv9EbD4qIkRK1OvI2LTu9Bz-IqJpfVx-qGKuQD9GPkJ0rpcxraof_tp8H1Zgmu1vGcckzXClGJjld6MLeXZDwPcvBeC4tlXjTk6CXHqDyK806Im_kNR8-Uq3cr-CU7Rm0Mez3MRes4GZi8T-wUWk5DSDyhj0BglOQUibeXf5j94JvQL0owd6mjNAGpj4nS8M0wqdISvFrCNQxnYLDN4Yp_7irqDpCIK8He5zkLajNUD1UiyfECNt9fsJVjV2OKD3GSe9DOCBjUwfXCNnB4kVgqe6ACFrJXbbcbhvFGGBhAYpefz1C62yGI1GkXrR6S2stqfWyHc6tufgrIqd2bO65-GDBKJeSwCMBauDU1cHGb2ARrzV-mIsbN2Q4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/swarj/Desktop/empolyees (1).csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/api/employees/import",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"employees",
+						"import"
+					]
+				},
+				"description": "import all employees from CSV file that has (name, age, salary, gender, hired date, job title,  \nmanagers) columns in to database, with a queued job."
+			},
+			"response": []
+		},
+		{
+			"name": "export csv",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/csv",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "text/csv",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/api/employees/export",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"employees",
+						"export"
+					]
+				},
+				"description": "export all employees to CSV file that has (name, age, salary, gender, hired date, job title,  \nmanagers) columns."
+			},
+			"response": []
+		},
+		{
+			"name": "logs in date",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiMTI3NmNlODI5MmVlZTA0YmJlNGY0OTdiOGE2NjRkNWRmMTgyMzY2N2U5MDEwZTMxNDg0ZDA0ZGQxZWY1N2M2OTUwYzRlZjM2YzE0Yzg1YzAiLCJpYXQiOjE2ODA0NzI5NTEuMDEzNDcxLCJuYmYiOjE2ODA0NzI5NTEuMDEzNDc0LCJleHAiOjE3MTIwOTUzNTEuMDA4MDc2LCJzdWIiOiI2MSIsInNjb3BlcyI6W119.gaaiYa3HnjHc-VcH34LI5tdDjhOO5idT1BY7NvKp-1qfkKqQNPcGr7A3q96nQSYNkxdCK3QSDxBTYCISeEFW_NBf4AlLnpE2rceqUaH8mvO3VSgTQvoAtM1maKxuf1gHct6wWgPcZa-2Wmbqedr6VelhoZ2MqAnAgL8vn7mP-BSAkrFmnHoIYLVGnsl2gdLYmRUKd2hJvofzn0qQPL8defa5FiKC8VlgSIGXYwUi6hSS_ck_VE_D6j42HqjUczGnV3yxrJhvCZiya8XqQsfDd-4duoLhC4cUUVHTc4DCPETz366RoDZbN-pwb5zMC0tIJ4BJgrA-wl44lBlo4TbvYbXbmN1yPcNBVmLCCRVPDn6grM213ghW2YJHbwgycxHYAGt3364m94px0R6pq6I8RpacPSYO5iu-6c3S2yHAC3Yi155qidwwy0icErofR8EOyimC5FeeRNl19upe5yHQrbHy1y_o9BeyJWcaAhay6LL4qbqIbxly7THTUOKQ1TjW0ExdGwR-Dz29WeRxK_ZdA2S7yCLGom2fnCivWdpYNWmTbzz_gW8dWyJWleTi6V-YR0fYQtI4t5y3kdB8dCQVcZv75hpHtOZbl4njiSYaHsPvukoQ6pOOFaKb_rB3v4jpCdRgx4GWf7tup6hKnXQUmRC72hl4YT4E-f5yt_Ob8Lk",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/api/employees/2023-04-02/logs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"employees",
+						"2023-04-02",
+						"logs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Employee",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYzVmOTNjZGFmZjdjNWUyM2UzODdjOTUzYzBmMmE0NzYxMmZjM2RhOTM3MzI3YzIwYzkyOTRhYWQzODI2NGI4ZDM1N2Y3YWUzZGRlOWZkNmEiLCJpYXQiOjE2ODA1MDUxODYuNTkwMDA0LCJuYmYiOjE2ODA1MDUxODYuNTkwMDA2LCJleHAiOjE3MTIxMjc1ODYuNTg2MTMzLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.fE0i-0qNPlCxYayotojbhRDOXd3ta5AGZ64Vu6D5wkdp822LQNHtHt5YTE_jcBNkxbopc3l1a6_HaGIDPU4gFb6tJ6TCnzsjT9cEMIUC3lcDAl9MnvXbovsL2fYbUgnCCbma9mDuC2muRSa1Ogk6ylqwQ9EI-LRY_4jJOHV0wAv22SKtk4ZU2dZ0Ij5XraBuYQCiP09TpwnW45uaa3a64KfRFG0vDU2vpezj7SiqxfNpGRGzR_MKDYZHBFtObKDXCHz1gBYXL0UpPCYc1gFAUebKrE56Y2JdsBwt57-0YG0Z2INzQSXc6hV4IbHa68C94Gy6v_6U__gM4K3-LLQ6BQ_BHd0-hvzkOs8PGsKPrFj7l1iTKccahE-jysAqPvcUgmccfQ2v3udlSnK2qN3AXEL5S7a5AwVxD0HcAx1Mv75UczzUsXgbfVPQG5oOpCpo9A97qqeFYnJMiJusgf8SqgL3IKLB3w_1pFSa7M4wNuoxX33xIBsAT2GFUsJd5yIbZH_DthmDYuGeB6OOIhV9R0oh457UISS6ELMNOhoRC_uk86ApWO0_tu1KscFdFRHLYTS_4KNdhTZtQEo8LPwkpKyZNKPW88xOMC78pt3yp4qc1eCv5yR5JEF1UGQQJcrIZzPALZMc7Xgsji2UMjNVq6Kviijy8JTkrRN8r5zazAI",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/api/employees/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"employees",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get Manager of employee",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "get the manager of employee with salary",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYzVmOTNjZGFmZjdjNWUyM2UzODdjOTUzYzBmMmE0NzYxMmZjM2RhOTM3MzI3YzIwYzkyOTRhYWQzODI2NGI4ZDM1N2Y3YWUzZGRlOWZkNmEiLCJpYXQiOjE2ODA1MDUxODYuNTkwMDA0LCJuYmYiOjE2ODA1MDUxODYuNTkwMDA2LCJleHAiOjE3MTIxMjc1ODYuNTg2MTMzLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.fE0i-0qNPlCxYayotojbhRDOXd3ta5AGZ64Vu6D5wkdp822LQNHtHt5YTE_jcBNkxbopc3l1a6_HaGIDPU4gFb6tJ6TCnzsjT9cEMIUC3lcDAl9MnvXbovsL2fYbUgnCCbma9mDuC2muRSa1Ogk6ylqwQ9EI-LRY_4jJOHV0wAv22SKtk4ZU2dZ0Ij5XraBuYQCiP09TpwnW45uaa3a64KfRFG0vDU2vpezj7SiqxfNpGRGzR_MKDYZHBFtObKDXCHz1gBYXL0UpPCYc1gFAUebKrE56Y2JdsBwt57-0YG0Z2INzQSXc6hV4IbHa68C94Gy6v_6U__gM4K3-LLQ6BQ_BHd0-hvzkOs8PGsKPrFj7l1iTKccahE-jysAqPvcUgmccfQ2v3udlSnK2qN3AXEL5S7a5AwVxD0HcAx1Mv75UczzUsXgbfVPQG5oOpCpo9A97qqeFYnJMiJusgf8SqgL3IKLB3w_1pFSa7M4wNuoxX33xIBsAT2GFUsJd5yIbZH_DthmDYuGeB6OOIhV9R0oh457UISS6ELMNOhoRC_uk86ApWO0_tu1KscFdFRHLYTS_4KNdhTZtQEo8LPwkpKyZNKPW88xOMC78pt3yp4qc1eCv5yR5JEF1UGQQJcrIZzPALZMc7Xgsji2UMjNVq6Kviijy8JTkrRN8r5zazAI",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/api/employees/3/managers-salary",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"employees",
+						"3",
+						"managers-salary"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search for employee by name",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYzVmOTNjZGFmZjdjNWUyM2UzODdjOTUzYzBmMmE0NzYxMmZjM2RhOTM3MzI3YzIwYzkyOTRhYWQzODI2NGI4ZDM1N2Y3YWUzZGRlOWZkNmEiLCJpYXQiOjE2ODA1MDUxODYuNTkwMDA0LCJuYmYiOjE2ODA1MDUxODYuNTkwMDA2LCJleHAiOjE3MTIxMjc1ODYuNTg2MTMzLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.fE0i-0qNPlCxYayotojbhRDOXd3ta5AGZ64Vu6D5wkdp822LQNHtHt5YTE_jcBNkxbopc3l1a6_HaGIDPU4gFb6tJ6TCnzsjT9cEMIUC3lcDAl9MnvXbovsL2fYbUgnCCbma9mDuC2muRSa1Ogk6ylqwQ9EI-LRY_4jJOHV0wAv22SKtk4ZU2dZ0Ij5XraBuYQCiP09TpwnW45uaa3a64KfRFG0vDU2vpezj7SiqxfNpGRGzR_MKDYZHBFtObKDXCHz1gBYXL0UpPCYc1gFAUebKrE56Y2JdsBwt57-0YG0Z2INzQSXc6hV4IbHa68C94Gy6v_6U__gM4K3-LLQ6BQ_BHd0-hvzkOs8PGsKPrFj7l1iTKccahE-jysAqPvcUgmccfQ2v3udlSnK2qN3AXEL5S7a5AwVxD0HcAx1Mv75UczzUsXgbfVPQG5oOpCpo9A97qqeFYnJMiJusgf8SqgL3IKLB3w_1pFSa7M4wNuoxX33xIBsAT2GFUsJd5yIbZH_DthmDYuGeB6OOIhV9R0oh457UISS6ELMNOhoRC_uk86ApWO0_tu1KscFdFRHLYTS_4KNdhTZtQEo8LPwkpKyZNKPW88xOMC78pt3yp4qc1eCv5yR5JEF1UGQQJcrIZzPALZMc7Xgsji2UMjNVq6Kviijy8JTkrRN8r5zazAI",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/api/employees/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"employees",
+						"search"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
