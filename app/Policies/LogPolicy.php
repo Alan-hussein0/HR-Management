@@ -31,7 +31,7 @@ class LogPolicy
      */
     public function view(User $user)
     {
-        return $user->type == 'founder' || $user->employee->job_title == ['HR']  
+        return $user->type == 'founder' || $user->employee->job_title == 'HR'  
         ? Response::allow()
         : Response::denyWithStatus(403,"you not authrized for this process");
     }

@@ -1,7 +1,7 @@
 @component("mail::message")
 
 {{-- # {{ __('auth.welcome', ['name' => $name]) }}!! --}}
-# {{Hello Mr. $name}}
+{{-- # {{Hello Mr. $name}} --}}
 {{-- @component('mail::button', ['url' => 'https://google.com'])
 Button Text
 @endcomponent --}}

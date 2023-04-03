@@ -37,7 +37,6 @@ class LogController extends BaseController
         if ($log == null) {
             return $this->sendResponse([],'there are no logs for this day');
         } 
-        // dd(new LogResource($log));
         
         $info = array(
             'title' => 'view logs',
