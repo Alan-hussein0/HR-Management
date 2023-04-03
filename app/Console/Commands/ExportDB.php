@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 
 class ExportDB extends Command
@@ -27,6 +28,13 @@ class ExportDB extends Command
      */
     public function handle()
     {
-        return Command::SUCCESS;
+        $filename = "backup-" . Carbon::now()->format('Y-m-d') . ".gz";
+  
+        $command = "mysqldump --user=" . env('DB_USERNAME') ." --password=" . env('DB_PASSWORD') . " --host=" . env('DB_HOST') . " " . env('DB_DATABASE') . "  | gzip > " . storage_path() . "/app/DB_backup/" . $filename;
+  
+        $returnVar = NULL;
+        $output  = NULL;
+  
+        exec($command, $output, $returnVar);
     }
 }

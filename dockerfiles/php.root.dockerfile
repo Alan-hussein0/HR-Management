@@ -44,7 +44,7 @@ RUN docker-php-ext-configure gd --enable-gd \
   --with-jpeg --with-webp && \
     docker-php-ext-install gd && \
     docker-php-ext-install zip
-# RUN apk add --no-cache mysql-client msmtp perl wget procps shadow libzip libpng libjpeg-turbo libwebp freetype icu
+RUN apk add --no-cache mysql-client 
 
 # RUN apk add --no-cache --virtual build-essentials \
 #     icu-dev icu-libs zlib-dev g++ make automake autoconf libzip-dev \
@@ -65,6 +65,7 @@ RUN docker-php-ext-configure gd --enable-gd \
 #   --with-zlib-dir
 
 RUN docker-php-ext-install pdo pdo_mysql
+
 
 RUN mkdir -p /usr/src/php/ext/redis \
     && curl -L https://github.com/phpredis/phpredis/archive/5.3.4.tar.gz | tar xvz -C /usr/src/php/ext/redis --strip 1 \
