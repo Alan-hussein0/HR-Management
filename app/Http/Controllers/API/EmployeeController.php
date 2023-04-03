@@ -36,7 +36,7 @@ class EmployeeController extends BaseController
                         $query->where('name', 'like', '%'.$sort_name.'%')
                         )
                         ->cursorPaginate(15);
-            return $this->sendResponse(EmployeeResource::collection($employee), 'The employee have been retrieved successfully');
+            return $this->sendResponse(AllEmployeeInfoResouces::collection($employee), 'The employee have been retrieved successfully');
         }
 
         $employee = Employee::orderBy('created_at','desc')->cursorPaginate(15);
