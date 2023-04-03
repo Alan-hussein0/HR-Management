@@ -19,6 +19,9 @@ class Profile extends Model
         'phone',
     ];
 
+    protected $casts = [
+        'data_of_birth' => 'datetime',
+    ];
 
     public function user()
     {
@@ -29,4 +32,11 @@ class Profile extends Model
     {
         return Carbon::parse($this->date_of_birth)->age;
     }
+
+    public function setAgeAttribute($age)
+    {
+        return $this->attributes['data_of_birth'] = Carbon::now()->subYear($age);
+    }
+
+    
 }

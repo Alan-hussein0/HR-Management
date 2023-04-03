@@ -121,7 +121,17 @@
                             </a>
                         </div>
                     </div>
-
+                    <a href="{{route('export')}}" class="ml-1 underline">
+                        export
+                    </a>
+                    
+                    <form action="import" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="input-group mb-3">
+                            <input type="file" name="file" class="form-control">
+                            <button class="btn btn-primary" type="submit">Submit</button>
+                        </div>
+                    </form>
                     <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
                         Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
                     </div>

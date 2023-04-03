@@ -48,6 +48,11 @@ class User extends Authenticatable
         return $this->hasOne(Profile::class);
     }
 
+    public function logs()
+    {
+        return $this->hasMany(Log::class);
+    }
+
     public function employee()
     {
         return $this->hasOne(Employee::class);

@@ -19,7 +19,7 @@ class EmployeeSeeder extends Seeder
     public function run()
     {
         $this->disableForeignKeys();
-        $this->truncate(table: 'users');
+        $this->truncate(table: 'employees');
        
         \App\Models\Employee::factory(10)->create();
        

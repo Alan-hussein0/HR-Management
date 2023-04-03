@@ -2,12 +2,12 @@
 
 namespace App\Policies;
 
-use App\Models\Employee;
+use App\Models\Log;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Auth\Access\Response;
 
-class EmployeePolicy
+class LogPolicy
 {
     use HandlesAuthorization;
 
@@ -26,12 +26,14 @@ class EmployeePolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Employee  $employee
+     * @param  \App\Models\Log  $log
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Employee $employee)
+    public function view(User $user)
     {
-        //
+        return $user->type == 'founder' || $user->employee->job_title == ['HR']  
+        ? Response::allow()
+        : Response::denyWithStatus(403,"you not authrized for this process");
     }
 
     /**
@@ -45,35 +47,38 @@ class EmployeePolicy
         //
     }
 
-    public function update(User $user, Employee $employee)
+    /**
+     * Determine whether the user can update the model.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\Log  $log
+     * @return \Illuminate\Auth\Access\Response|bool
+     */
+    public function update(User $user, Log $log)
     {
-        return $user->employee->job_title == 'HR'
-                        ? Response::allow()
-                        : Response::denyWithStatus(403,"you not authrized for this process"); 
+        //
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Employee  $employee
+     * @param  \App\Models\Log  $log
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Employee $employee)
+    public function delete(User $user, Log $log)
     {
-        return $user->employee->job_title == 'HR' && $user->id != $employee->user_id
-        ? Response::allow()
-        : Response::denyWithStatus(403,"you not authrized for this process");
+        //
     }
 
     /**
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Employee  $employee
+     * @param  \App\Models\Log  $log
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Employee $employee)
+    public function restore(User $user, Log $log)
     {
         //
     }
@@ -82,11 +87,11 @@ class EmployeePolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Employee  $employee
+     * @param  \App\Models\Log  $log
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Employee $employee)
+    public function forceDelete(User $user, Log $log)
     {
-       
+        //
     }
 }

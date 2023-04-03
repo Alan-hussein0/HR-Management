@@ -2,14 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Models\Employee;
-use App\Models\Profile;
+use App\Models\Log;
 use Database\Seeders\Traits\DisableForeignKeys;
 use Database\Seeders\Traits\TruncateTable;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class UserSeeder extends Seeder
+class LogSeeder extends Seeder
 {
     use TruncateTable, DisableForeignKeys;
     /**
@@ -18,15 +17,10 @@ class UserSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
+    { 
         $this->disableForeignKeys();
-        $this->truncate(table: 'users');
-        \App\Models\User::factory()->count(10)->create();
+        $this->truncate(table: 'profiles');
+        Log::factory(10)->create();
         $this->enableForeignKeys();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
     }
 }

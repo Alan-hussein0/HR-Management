@@ -14,7 +14,7 @@ use Tests\TestCase;
 class ProfileTest extends TestCase
 {
     use RefreshDatabase;
-    private User $fonder;
+    private User $founder;
     private User $employee;
 
     protected function setUp(): Void
@@ -23,7 +23,7 @@ class ProfileTest extends TestCase
         
         $this->artisan('passport:install');
 
-        $this->fonder = $this->createUser(type: 'fonder');
+        $this->founder = $this->createUser(type: 'founder');
         $this->employee = $this->createUser(type: 'employee');
     }
 

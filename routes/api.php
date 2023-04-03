@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\EmployeeController;
+use App\Http\Controllers\API\LogController;
 use App\Http\Controllers\API\ProfileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,8 +23,10 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/register', 'register');
 });
 
+//can send 10 request per minute maximum
 Route::middleware([
     'auth:api',
+    'throttle:api',
     ])
     ->prefix('user/profile')
     ->as('user.profile.')
@@ -42,5 +45,12 @@ Route::middleware([
         Route::get('/search',[EmployeeController::class, 'index'])->name('index');
         Route::patch('/{employee}',[EmployeeController::class, 'update'])->name('update');        
         Route::get('/{employee}', [EmployeeController::class, 'show']);
+        Route::delete('/{employee}', [EmployeeController::class, 'destroy']);
+        Route::get('/{employee}/managers', [EmployeeController::class, 'managers']);
+        Route::get('/{employee}/managers-salary', [EmployeeController::class, 'managersSalary']);
+        Route::get('/{date}/logs', [LogController::class,'show']);
     }
 );
+
+Route::get('employees/export', [EmployeeController::class, 'exportCSV'])->name('export');
+Route::post('employees/import', [EmployeeController::class, 'importCSV']);

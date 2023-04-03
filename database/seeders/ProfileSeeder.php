@@ -19,7 +19,7 @@ class ProfileSeeder extends Seeder
     public function run()
     {
         $this->disableForeignKeys();
-        $this->truncate(table: 'users');
+        $this->truncate(table: 'profiles');
         Profile::factory(10)->create();
         $this->enableForeignKeys();
     }
