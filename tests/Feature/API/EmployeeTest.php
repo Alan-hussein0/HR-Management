@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\API;
 
+use App\Http\Controllers\API\EmployeeController;
 use App\Models\Employee;
 use App\Models\Profile;
 use App\Models\User;
@@ -24,7 +25,6 @@ class EmployeeTest extends TestCase
         $this->artisan('passport:install');
 
         $this->founder = $this->createUser(type: 'founder');
-        // $this->HR = $this->createEmployee(jobTitle: 'HR');
         $this->employee = $this->createUser(type: 'employee');
     }
 
@@ -141,7 +141,7 @@ class EmployeeTest extends TestCase
         ]);
 
         $response = $this->getJson('/api/employees/22', $this->header(user: $user));
-        // dd($response->json());
+
         $response->assertStatus(404)
                     ->assertJsonFragment([
                         'message' => 'No query results for model [App\\Models\\Employee] 22'
@@ -269,7 +269,6 @@ class EmployeeTest extends TestCase
     {
         $employee = $this->createEmployee(jobTitle: 'security',user_id: $this->createUser('employee')->id);
         $employee_IT = $this->createEmployee(jobTitle: 'IT',user_id: $this->createUser('employee')->id);
-        // $HR = $this->createEmployee(jobTitle: 'HR',user_id: $this->employee->id);
 
         $response = $this->deleteJson('/api/employees/'.$employee->id,[],$this->header(user: $employee_IT->user));
 
@@ -282,8 +281,7 @@ class EmployeeTest extends TestCase
 
     public function test_HR_employee_delete_himself_return_error_successfully()
     {
-        // $employee = $this->createEmployee(jobTitle: 'security',user_id: $this->createUser('employee')->id);
-        // $employee_IT = $this->createEmployee(jobTitle: 'IT',user_id: $this->createUser('employee')->id);
+        
         $HR = $this->createEmployee(jobTitle: 'HR',user_id: $this->employee->id);
 
         $response = $this->deleteJson('/api/employees/'.$HR->id,[],$this->header(user: $HR->user));

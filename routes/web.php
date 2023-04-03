@@ -17,5 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/export', [EmployeeController::class, 'exportCSV'])->name('export');
-Route::post('/import', [EmployeeController::class, 'importCSV'])->name('import');
+// Route::get('/export', [EmployeeController::class, 'exportCSV'])->name('export');
+// Route::post('/import', [EmployeeController::class, 'importCSV'])->name('import');

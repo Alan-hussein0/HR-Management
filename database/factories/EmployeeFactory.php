@@ -19,7 +19,6 @@ class EmployeeFactory extends Factory
     {
         return [
             'user_id' => User::factory(['type' => 'employee']),
-            // 'manager_id' =>function (array $attribute){},
             'salary' => fake()->numberBetween(700,5000),
             'hired_at' => fake()->date(),
             'job_title' => fake()->jobTitle(),

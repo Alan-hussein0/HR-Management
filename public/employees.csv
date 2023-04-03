@@ -1,1 +1,12 @@
 name,first_name,last_name,age,salary,gender,"hired date","job title",managers
+"Prof. Cameron Douglas","Sigurd Gulgowski","Fay Cruickshank",1,4179,1,1982-10-19,"Animal Husbandry Worker"," -> Jovanny Kling -> Prof. Davion Ebert DVM -> Tate Vandervort V"
+"Tate Vandervort V","Aiyana Gottlieb","Lourdes Kreiger",15,1922,0,2023-04-03,engineer," -> Jovanny Kling -> Prof. Davion Ebert DVM"
+"Prof. Davion Ebert DVM","Dr. Marcella Bahringer PhD","Percy Rice Jr.",10,2241,1,1983-02-06,"Licensing Examiner and Inspector"," -> Jovanny Kling"
+"Jovanny Kling","Willa Raynor","Misty Sauer",25,1407,0,1975-11-17,"User Experience Researcher",
+"Angel Kreiger","Oswald Jerde DDS","Prof. Judd Schumm MD",18,3887,1,1980-11-18,Roustabouts,
+"Ms. Judy Wiza","Jamel Kuhn","Deangelo Marvin",47,4894,0,1988-04-03,"Producers and Director",
+"Kaela Gibson IV","Niko Erdman","Connie Muller",35,3096,1,1972-05-17,Dancer,
+"Mrs. Zita Okuneva","Christelle Klocko","Prof. Woodrow Mayer",12,4669,1,1989-04-22,"Photographic Developer",
+"Kacie Monahan","Samir Bruen","Blanche Mosciski",29,1082,1,2008-09-18,"Correctional Officer",
+"Juston Pfeffer","Estevan Rolfson","Norwood Bergstrom",33,350,1,2022-03-21,IT," -> Angel Kreiger"
+ahmed,ahmed,khaled,24,1222,1,2023-04-03,HR,

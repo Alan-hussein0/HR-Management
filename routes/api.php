@@ -4,7 +4,6 @@ use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\EmployeeController;
 use App\Http\Controllers\API\LogController;
 use App\Http\Controllers\API\ProfileController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,6 +37,7 @@ Route::middleware([
 
 Route::middleware([
     'auth:api',
+    'throttle:api',
     ])
     ->prefix('employees')
     ->as('employees.')
@@ -48,9 +48,9 @@ Route::middleware([
         Route::delete('/{employee}', [EmployeeController::class, 'destroy']);
         Route::get('/{employee}/managers', [EmployeeController::class, 'managers']);
         Route::get('/{employee}/managers-salary', [EmployeeController::class, 'managersSalary']);
-        Route::get('/{date}/logs', [LogController::class,'show']);
+        Route::get('/{date}/logs', [LogController::class,'show']);        
+        Route::post('/import', [EmployeeController::class, 'importCSV']);
+        Route::options('/export-csv', [EmployeeController::class, 'exportCsv']);
     }
 );
 
-Route::get('employees/export', [EmployeeController::class, 'exportCSV'])->name('export');
-Route::post('employees/import', [EmployeeController::class, 'importCSV']);
