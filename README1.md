@@ -14,6 +14,7 @@ Bring any container(s) down with: docker-compose down
 Next, from your terminal running: docker-compose run --rm composer update
 then migrate by running: docker-compose run --rm artisan migrate
 after that set the encryption key for passport package: docker-compose run --rm artisan passport:install
+at the last run:  docker-compose run --rm artisan key:generate
 
 Now you reeady to run the project :)
 
@@ -28,6 +29,9 @@ Automated test used also to make sure the system is reliable and unbroken, to us
 
 #Custom-Command
 1- custom command to export database: docker-compose run --rm artisan export:DB
+
 2- custom command to remove log files: docker-compose run --rm artisan remove:log
+
 3- custom command to export all employees to a json file: docker-compose run --rm artisan export:employee
+
 4- custom command to insert 1000 rows of fake data into employees table: docker-compose run --rm artisan fake:employee
