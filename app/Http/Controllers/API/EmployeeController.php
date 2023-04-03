@@ -10,6 +10,7 @@ use App\Http\Controllers\LogController;
 use App\Http\Resources\AllEmployeeInfoResouces;
 use App\Http\Resources\EmployeeResource;
 use App\Jobs\ProcessEmployeeCsv;
+use App\Jobs\ProcessSendEmail;
 use App\Models\Profile;
 use App\Models\User;
 use Carbon\Carbon;
@@ -74,11 +75,13 @@ class EmployeeController extends BaseController
 
     public function update(UpdateEmployeeRequest $request, Employee $employee)
     {
+        $check_change = $request->salary != $employee->salary ? true : false; 
         $this->authorize('update',$employee);
 
         if ($request->has('manager_id')) {
             $employee->manager_id = $request->manager_id;            
         }
+
         $employee->salary = $request->salary;            
         $employee->job_title = $request->job_title;            
         $employee->hired_at = $request->hired_at;            
@@ -89,6 +92,12 @@ class EmployeeController extends BaseController
             'description' => 'update employee who has id: '.$employee->id.' in the system by HR: '.Auth::user()->name.'.',
         );
         (new APILogController)->store(data:$data);
+        
+        //send email
+        // dd(\Illuminate\Support\Facades\App::environment());
+        if ($check_change && \Illuminate\Support\Facades\App::environment('local')) {
+            ProcessSendEmail::dispatch(user: $employee->user);
+        }
 
         return $this->sendResponse(new EmployeeResource($employee), 'The employee info has been updated successfully');
     }

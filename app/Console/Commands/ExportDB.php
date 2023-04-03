@@ -11,14 +11,14 @@ class ExportDB extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'export:DB';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Command to export database.';
 
     /**
      * Execute the console command.
