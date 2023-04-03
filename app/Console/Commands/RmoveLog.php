@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Storage;
 
 class RmoveLog extends Command
 {
@@ -27,8 +28,8 @@ class RmoveLog extends Command
      */
     public function handle()
     {
-        foreach ($variable as $key => $value) {
-            # code...
+        if (Storage::exists('data.json')) {
+            Storage::delete('data.json');
         }
     }
 }
