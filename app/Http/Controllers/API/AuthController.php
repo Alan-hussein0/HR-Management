@@ -17,7 +17,7 @@ class AuthController extends BaseController
     {
         $input = $request->all();
         $validator= Validator::make($input,[
-            // 'name'=>'required',
+            'name'=>'required',
             'type' => 'required',
             'email'=>'required|email',
             'password'=>'required',
@@ -40,15 +40,15 @@ class AuthController extends BaseController
         //create new profile for the user with dumy data
         // $this->create_profile($user->id);
         (new ProfileController)->store($user->id);
-        // Profile::create([
-        //         'user_id' => $user->id,
-        //         'first_name' => 'first_name',
-        //         'last_name' => 'last_name',
-        //         'date_of_birth' => Carbon::now(),
-        //     ]);
+
+        //create new assgin this user to employee with dumy data
+        if ($request->type == 'employee') {
+            (new EmployeeController)->store($user->id);            
+        }
 
         $success['token'] = $user->createToken('HRManagementProject')->accessToken;
         $success['type'] = $user->type;
+        $success['name'] = $user->name;
         $success['id']= $user->id;
         return $this->sendResponse($success,'User registered Successfully!');
 
@@ -60,6 +60,7 @@ class AuthController extends BaseController
             $user = Auth::user();
             $success['token'] = $user->createToken('HRManagementProject')->accessToken;
             $success['type'] = $user->type;
+            $success['name'] = $user->name;
             $success['id']= $user->id;
             return $this->sendResponse($success, 'User Login Successfully!' );
         }

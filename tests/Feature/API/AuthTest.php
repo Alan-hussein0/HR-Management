@@ -59,7 +59,7 @@ class AuthTest extends TestCase
     public function test_user_register_successfully()
     {
         $user = [
-            // 'name' => 'user',
+            'name' => 'user',
             'type' => 'employee',
             'email' => 'user@gmail.com',
             'password' => 'secret',
@@ -69,6 +69,7 @@ class AuthTest extends TestCase
         $response = $this->postJson('api/register',$user);
      
         $this->assertDatabaseCount('profiles',1);
+        $this->assertDatabaseCount('employees',1);
         $response->assertStatus(200);
         $response->assertJsonStructure(['success','data'=>['token']]);
     }
@@ -77,7 +78,7 @@ class AuthTest extends TestCase
     {
         User::factory()->create(['email' => 'user@gmail.com']);
         $user = [
-            // 'name' => 'user',
+            'name' => 'user',
             'type' => 'fonder',
             'email' => 'user@gmail.com',
             'password' => 'secret',
@@ -94,7 +95,7 @@ class AuthTest extends TestCase
     public function test_user_register_validation_error_successfully()
     {
         $user = [
-            // 'name' => '',
+            'name' => 'test',
             'type' => '',
             'email' => 'user@gmail.com',
             'password' => 'secret',

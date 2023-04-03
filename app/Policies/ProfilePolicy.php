@@ -13,7 +13,6 @@ class ProfilePolicy
 {
     use HandlesAuthorization;
 
-    protected $stopOnFirstFailure = true;
     /**
      * Determine whether the user can view any models.
      *
@@ -48,7 +47,6 @@ class ProfilePolicy
      */
     public function update(User $user, Profile $profile)
     {
-       ;
         return $user->id == $profile->user_id 
         ? Response::allow() 
         : Response::denyWithStatus(status: 403, message: 'unauthorized to make this operation');
