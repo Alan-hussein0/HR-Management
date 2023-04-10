@@ -2,7 +2,7 @@
 
 To get started, make sure you have Docker installed on your system, and then clone this repository.
 
-Next, navigate in your terminal to the directory you cloned this, and spin up the containers for the web server by running 'docker-compose up -d --build app'
+Next, navigate in your terminal to the directory you cloned this, and spin up the containers for the web server by running `docker-compose up -d --build app`
 
 Note: Your MySQL database host name should be: `mysql`, not localhost. The username and database should both be: `homestead` with a password of secret.
 
